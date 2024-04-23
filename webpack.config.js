@@ -11,6 +11,23 @@ export default {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
   },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "dist"), // Serves files from dist
+    },
+    historyApiFallback: {
+      disableDotRule: true,
+      rewrites: [
+        { from: /^\/$/, to: "/index.html" }, // Root path
+        { from: /^\/about$/, to: "/about.html" }, // About page
+        { from: /^\/contact$/, to: "/contact.html" }, // Contact page
+      ],
+    },
+    hot: true,
+    port: 8080,
+    open: true,
+  },
+
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
