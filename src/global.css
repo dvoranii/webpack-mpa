@@ -1,7 +1,24 @@
+/* color themes*/
+/* font size scales */
+/* spacing ratios */
+
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+section {
+  width: 80%;
+  margin: 0 auto;
+  min-height: 90vh;
 }

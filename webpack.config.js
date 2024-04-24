@@ -13,14 +13,14 @@ export default {
   },
   devServer: {
     static: {
-      directory: path.join(__dirname, "dist"), // Serves files from dist
+      directory: path.join(__dirname, "dist"),
     },
     historyApiFallback: {
       disableDotRule: true,
       rewrites: [
-        { from: /^\/$/, to: "/index.html" }, // Root path
-        { from: /^\/about$/, to: "/about.html" }, // About page
-        { from: /^\/contact$/, to: "/contact.html" }, // Contact page
+        { from: /^\/$/, to: "/index.html" },
+        { from: /^\/about$/, to: "/about.html" },
+        { from: /^\/contact$/, to: "/contact.html" },
       ],
     },
     hot: true,
