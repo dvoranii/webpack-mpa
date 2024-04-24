@@ -3,3 +3,9 @@ footer {
   height: 10vh;
   background-color: grey;
 }
+
+footer p {
+  padding: 20px;
+  font-style: italic;
+  color: white;
+}

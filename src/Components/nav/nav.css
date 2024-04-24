@@ -2,12 +2,23 @@ nav {
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  background-color: grey;
 }
 .nav--list {
   display: flex;
   list-style: none;
+  padding: 20px;
 }
 
 .nav--list__item {
   padding: 10px;
+}
+
+.nav--list__item a {
+  color: black;
+  transition: all 150ms ease;
+}
+
+.nav--list__item a:hover {
+  color: white;
 }

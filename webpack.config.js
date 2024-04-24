@@ -21,6 +21,7 @@ export default {
         { from: /^\/$/, to: "/index.html" },
         { from: /^\/about$/, to: "/about.html" },
         { from: /^\/contact$/, to: "/contact.html" },
+        // add the rest of the pages
       ],
     },
     hot: true,
