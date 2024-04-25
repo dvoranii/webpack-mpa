@@ -8,6 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default {
   entry: "./src/main.js",
   output: {
+    publicPath: "/",
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
   },
@@ -16,12 +17,11 @@ export default {
       directory: path.join(__dirname, "dist"),
     },
     historyApiFallback: {
-      disableDotRule: true,
       rewrites: [
         { from: /^\/$/, to: "/index.html" },
         { from: /^\/about$/, to: "/about.html" },
         { from: /^\/contact$/, to: "/contact.html" },
-        // add the rest of the pages
+        { from: /^\/quote$/, to: "/quote.html" },
       ],
     },
     hot: true,
@@ -34,17 +34,22 @@ export default {
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: "./src/index.html",
-      chunks: ["home"],
+      inject: true,
     }),
     new HtmlWebpackPlugin({
       filename: "about.html",
       template: "./src/about/about.html",
-      chunks: ["about"],
+      inject: true,
     }),
     new HtmlWebpackPlugin({
       filename: "contact.html",
       template: "./src/contact/contact.html",
-      chunks: ["contact"],
+      inject: true,
+    }),
+    new HtmlWebpackPlugin({
+      filename: "quote.html",
+      template: "./src/quote/quote.html",
+      inject: true,
     }),
   ],
 

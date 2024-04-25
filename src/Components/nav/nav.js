@@ -7,6 +7,7 @@ const navTemplate = html`
       <li class="nav--list__item"><a href="/">Home</a></li>
       <li class="nav--list__item"><a href="/about">About</a></li>
       <li class="nav--list__item"><a href="/contact">Contact</a></li>
+      <li class="nav--list__item"><a href="/quote">Quote</a></li>
     </ul>
   </nav>
 `;
