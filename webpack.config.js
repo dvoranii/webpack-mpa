@@ -10,10 +10,12 @@ export default {
     main: "./src/main.js",
     quote: "./src/quote/quote.js",
   },
+  devtool: "eval-source-map",
   output: {
     publicPath: "/",
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
+    clean: true,
   },
   devServer: {
     static: {
@@ -23,7 +25,9 @@ export default {
       rewrites: [
         { from: /^\/$/, to: "/index.html" },
         { from: /^\/about$/, to: "/about.html" },
-        { from: /^\/contact$/, to: "/contact.html" },
+        { from: /^\/contact\/contact-on$/, to: "/contact-on.html" },
+        { from: /^\/contact\/contact-qc$/, to: "/contact-qc.html" },
+        // { from: /^\/contact$/, to: "/contact.html" },
         { from: /^\/quote$/, to: "/quote.html" },
         {
           from: /^\/service-categories\/sporting-goods\/$/,
@@ -72,8 +76,13 @@ export default {
       inject: true,
     }),
     new HtmlWebpackPlugin({
-      filename: "contact.html",
-      template: "./src/contact/contact.html",
+      filename: "contact-on.html",
+      template: "./src/contact/contact-on/contact-on.html",
+      inject: true,
+    }),
+    new HtmlWebpackPlugin({
+      filename: "contact-qc.html",
+      template: "./src/contact/contact-qc/contact-qc.html",
       inject: true,
     }),
     new HtmlWebpackPlugin({
@@ -128,7 +137,15 @@ export default {
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
       },
     ],
   },

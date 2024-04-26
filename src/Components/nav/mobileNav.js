@@ -1,12 +1,12 @@
-import "./nav.css";
+import "./mobileNav.css";
 import { html, render } from "lit-html";
 
-const navTemplate = html`
-  <nav class="desktop-nav">
-    <ul class="nav--list">
-      <li class="nav--list__item"><a href="/">Home</a></li>
-      <li class="nav--list__item"><a href="/about">About</a></li>
-      <li class="nav--list__item dropdown">
+const mobileNavTemplate = html`
+  <nav class="mobile-nav">
+    <ul class="nav--list__mobile">
+      <li class="nav--list__item--mobile"><a href="/">Home</a></li>
+      <li class="nav--list__item--mobile"><a href="/about">About</a></li>
+      <li class="nav--list__item--mobile dropdown">
         <a href="#">Services</a>
         <ul class="dropdown-content">
           <li>
@@ -16,7 +16,6 @@ const navTemplate = html`
           </li>
           <li class="dropdown">
             <a href="/service-categories/transportation/">Transportation</a>
-            <!-- Sub-dropdown -->
             <ul class="dropdown--submenu">
               <li>
                 <a href="/service-categories/transportation/air/">• Air</a>
@@ -47,7 +46,3 @@ const navTemplate = html`
     </ul>
   </nav>
 `;
-
-export function renderNav(container) {
-  render(navTemplate, container);
-}
